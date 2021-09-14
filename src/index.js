@@ -17,7 +17,7 @@ import {
   Progress,
   Slide,
   Text,
-  UnorderedList
+  UnorderedList,
 } from "spectacle";
 
 // SPECTACLE_CLI_THEME_START
@@ -26,7 +26,7 @@ const theme = {
     primary: "white",
     secondary: "#c5c8c6",
     // background-color
-    tertiary: '#0a51a1',
+    tertiary: "#0a51a1",
     // quaternary:
     // quinary:
   },
@@ -34,9 +34,9 @@ const theme = {
   //   header: '"Helvetica Neue", Helvetica, Arial, sans-serif',
   // },
   fontSizes: {
-  //   h1: "72px",
-  //   h2: "64px",
-    text: "40px"
+    //   h1: "72px",
+    //   h2: "64px",
+    text: "40px",
   },
 };
 // SPECTACLE_CLI_THEME_END
@@ -61,14 +61,18 @@ const template = () => (
 
 const Presentation = () => (
   <Deck theme={theme} template={template}>
-
     <Slide>
       <Heading>SeptembRSE Python showdown: Conda</Heading>
       <Heading fontSize="h2">Simon Li</Heading>
       <FlexBox justifyContent="right">
-      <FlexBox justifyContent="right" backgroundColor="white" width={520} padding={10}>
-        <Image src="images/Health_Informatics_Centre_RGB.png" width={500} />
-      </FlexBox>
+        <FlexBox
+          justifyContent="right"
+          backgroundColor="white"
+          width={520}
+          padding={10}
+        >
+          <Image src="images/Health_Informatics_Centre_RGB.png" width={500} />
+        </FlexBox>
       </FlexBox>
     </Slide>
 
@@ -174,9 +178,15 @@ const Presentation = () => (
 
     <Slide>
       <Heading>Example use case: Trusted Research Environment</Heading>
-      <Text>Can create portable environments for Windows systems with limited network access</Text>
+      <Text>
+        Can create portable environments for Windows systems with limited
+        network access
+      </Text>
       <OrderedList paddingLeft={100}>
-        <ListItem>Use <Link href="https://conda.github.io/conda-pack/">conda-pack</Link> to archive the environment as a zip</ListItem>
+        <ListItem>
+          Use <Link href="https://conda.github.io/conda-pack/">conda-pack</Link>{" "}
+          to archive the environment as a zip
+        </ListItem>
         <ListItem>Review for security/malware</ListItem>
         <ListItem>Copy to a potentially air-gapped system and unzip</ListItem>
       </OrderedList>
@@ -194,17 +204,32 @@ const Presentation = () => (
     </MarkdownSlide>
 
     <Slide>
-      <Heading fontSize="h3">Use case: Reproducible notebook environments in the cloud</Heading>
+      <Heading fontSize="h3">
+        Use case: Reproducible notebook environments in the cloud
+      </Heading>
 
-      <FlexBox alignContent="left" alignItems="left" verticalAlign="bottom" width={1000}>
+      <FlexBox
+        alignContent="left"
+        alignItems="left"
+        verticalAlign="bottom"
+        width={1000}
+      >
         <Link href="https://mybinder.org" textAlign="left">
           https://mybinder.org
         </Link>
-        <Box backgroundColor="white" width={200} padding={0} alignContent="left">
+        <Box
+          backgroundColor="white"
+          width={200}
+          padding={0}
+          alignContent="left"
+        >
           <Image src="images/mybinder.svg" width={200} />
         </Box>
       </FlexBox>
-      <Text>Pass in a Git repository URL which includes versioned dependencies, get a reproducible Jupyter based environment in the cloud</Text>
+      <Text>
+        Pass in a Git repository URL which includes versioned dependencies, get
+        a reproducible Jupyter based environment in the cloud
+      </Text>
     </Slide>
 
     <MarkdownSlide>
@@ -215,7 +240,6 @@ const Presentation = () => (
       - You need multiple versions of Python
       `}
     </MarkdownSlide>
-
   </Deck>
 );
 
