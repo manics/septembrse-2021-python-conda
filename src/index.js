@@ -4,9 +4,11 @@ import { render } from "react-dom";
 import {
   Box,
   CodePane,
+  CodeSpan,
   Deck,
   FlexBox,
   FullScreen,
+  Grid,
   Heading,
   Image,
   Link,
@@ -23,11 +25,14 @@ import {
 // SPECTACLE_CLI_THEME_START
 const theme = {
   colors: {
-    primary: "white",
-    secondary: "#c5c8c6",
+    primary: "#0a51a1",
+    // headings
+    secondary: "#1e2852",
     // background-color
-    tertiary: "#0a51a1",
-    // quaternary:
+    tertiary: "#f0f0f0",
+    // tertiary: "",
+    // hyperlinks
+    quaternary: "#01d17c",
     // quinary:
   },
   // fonts: {
@@ -53,7 +58,7 @@ const template = () => (
       <FullScreen />
     </Box>
     <Box padding="1em">
-      <Progress />
+      <Progress color={theme.colors.primary} />
     </Box>
   </FlexBox>
 );
@@ -62,15 +67,19 @@ const template = () => (
 const Presentation = () => (
   <Deck theme={theme} template={template}>
     <Slide>
-      <Heading>SeptembRSE Python showdown: Conda</Heading>
-      <Heading fontSize="h2">Simon Li</Heading>
-      <FlexBox justifyContent="right">
-        <FlexBox
-          justifyContent="right"
-          backgroundColor="white"
-          width={520}
-          padding={10}
-        >
+      <Heading>SeptembRSE Python showdown</Heading>
+      <FlexBox alignContent="center">
+        <Image src="images/Conda_logo.svg" width={500} />
+      </FlexBox>
+
+      <FlexBox
+        justifyContent="right"
+        position="absolute"
+        bottom={100}
+        right={20}
+      >
+        <FlexBox justifyContent="right" backgroundColor="white" padding={10}>
+          <Heading fontSize="h2">Simon Li</Heading>
           <Image src="images/Health_Informatics_Centre_RGB.png" width={500} />
         </FlexBox>
       </FlexBox>
@@ -99,15 +108,42 @@ const Presentation = () => (
       `}
     </MarkdownSlide>
 
-    <MarkdownSlide>
-      {`
-      ### Self contained
-
-      - You can use it to install multiple versions of Python.
-      - No external libraries needed for compiled Python modules
-      - You can install any software that's been packaged in Conda such as R, Git, Terraform, C/C++/Fortran compilers
-      `}
-    </MarkdownSlide>
+    <Slide>
+      <Heading fontSize="h3">Self contained</Heading>
+      <Grid gridTemplateColumns="70% 30%">
+        <Box alignItems="center" justifyContent="center">
+          <Text>Install multiple versions of Python</Text>
+          <Text>No external libraries needed</Text>
+          <Text>
+            Install any software that's been packaged in Conda such as R, Git,
+            Terraform, C/C++/Fortran compilers
+          </Text>
+        </Box>
+        <Box>
+          <Box padding={10}>
+            <Image src="images/python-logo-generic.svg" width={220} />
+          </Box>
+          <Box padding={10}>
+            <Image src="images/LLVM-Logo-Derivative-1.png" width={100} />
+            <Image src="images/Rlogo.svg" width={100} />
+          </Box>
+          <Box padding={10}>
+            <Image src="images/RStudio-Logo.svg" width={220} />
+          </Box>
+          <Box padding={10}>
+            <Image src="images/terraform-logo.svg" width={220} />
+          </Box>
+          <Box padding={10}>
+            <Image src="images/Git-Logo-2Color.png" width={200} />
+          </Box>
+        </Box>
+      </Grid>
+      <Notes>
+        Pytables used to require installation of libhdf5 (it might have a wheel
+        now that includse HDF5?). Upgrading HDF5 breaks pytables. With Conda
+        everything remains consistent.
+      </Notes>
+    </Slide>
 
     <MarkdownSlide>
       {`
@@ -177,7 +213,9 @@ const Presentation = () => (
     </MarkdownSlide>
 
     <Slide>
-      <Heading>Example use case: Trusted Research Environment</Heading>
+      <Heading fontSize="h3">
+        Example use case: Trusted Research Environment
+      </Heading>
       <Text>
         Can create portable environments for Windows systems with limited
         network access
@@ -234,10 +272,13 @@ const Presentation = () => (
 
     <MarkdownSlide>
       {`
-      # When should you consider using it?
+      # When should you consider it?
 
-      - You're installing more than just simple Python packages
+      - Your Python packages have complex dependencies
+      - You want a single way to install other software
       - You need multiple versions of Python
+      - Exact reproducibility
+      - You're on Windows
       `}
     </MarkdownSlide>
   </Deck>
