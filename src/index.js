@@ -1,5 +1,5 @@
-import React from 'react';
-import { render } from 'react-dom';
+import React from "react";
+import { render } from "react-dom";
 
 import {
   Box,
@@ -7,17 +7,27 @@ import {
   FlexBox,
   FullScreen,
   Progress,
-  MarkdownSlideSet
-} from 'spectacle';
-
+  MarkdownSlideSet,
+} from "spectacle";
 
 // SPECTACLE_CLI_MD_START
-import mdContent from './slides.md';
+import mdContent from "./slides.md";
 // SPECTACLE_CLI_MD_END
 
-
 // SPECTACLE_CLI_THEME_START
-const theme = {};
+const theme = {
+  colors: {
+    primary: "white",
+    secondary: "#c5c8c6",
+  },
+  // fonts: {
+  //   header: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+  // },
+  // fontSizes: {
+  //   h1: "72px",
+  //   h2: "64px",
+  // },
+};
 // SPECTACLE_CLI_THEME_END
 
 // SPECTACLE_CLI_TEMPLATE_START
@@ -40,8 +50,8 @@ const template = () => (
 
 const Presentation = () => (
   <Deck theme={theme} template={template}>
-    <MarkdownSlideSet>{mdContent}</MarkdownSlideSet>
+    <MarkdownSlideSet backgroundColor="#0A51A1">{mdContent}</MarkdownSlideSet>
   </Deck>
 );
 
-render(<Presentation />, document.getElementById('root'));
+render(<Presentation />, document.getElementById("root"));
