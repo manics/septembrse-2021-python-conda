@@ -177,7 +177,7 @@ const Presentation = () => (
       <Heading fontSize="h3">Create environment</Heading>
       <CodePane showLineNumbers={false} language="sh">
         {`
-        conda create -n demo python=3.8 jupyterlab("d")
+        conda create -n demo python=3.8 jupyterlab
         conda activate demo
         jupyter-lab
         `}
@@ -206,7 +206,7 @@ const Presentation = () => (
       ### Disadvantages
 
       - Size: self contained means you duplicate a lot of your operating system libraries
-      - Slow installation: resolving package dependencies can be slow (mamba is a faster drop-in replacement)
+      - Slow installation: resolving package dependencies can be slow ([Mamba](https://github.com/mamba-org/mamba) is a faster drop-in replacement)
       - Python packages need to be repackaged for conda (though can still use pip)
       - Binaries may not be optimised for your system
       `}
@@ -291,7 +291,7 @@ const Presentation = () => (
             Linux: Conda for base Python environments with some dependencies,
             then pip for other development dependencies
           </Text>
-          <Text>Why not _X_? Too many other options!</Text>
+          <Text>Why not ❔⍰❓ Too many other options!</Text>
         </Box>
         <Link href="https://xkcd.com/1987/">
           <Image src="images/xkcd-python_environment.png" />
