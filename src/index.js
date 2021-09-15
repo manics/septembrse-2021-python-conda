@@ -272,7 +272,7 @@ const Presentation = () => (
 
     <MarkdownSlide>
       {`
-      # When should you consider it?
+      ### When should you consider it?
 
       - Your Python packages have complex dependencies
       - You want a single way to install other software
@@ -281,6 +281,23 @@ const Presentation = () => (
       - You're on Windows
       `}
     </MarkdownSlide>
+
+    <Slide>
+      <Heading fontSize="h3">What do I use day to day?</Heading>
+      <FlexBox>
+        <Box>
+          <Text>Windows: Conda for everything</Text>
+          <Text>
+            Linux: Conda for base Python environments with some dependencies,
+            then pip for other development dependencies
+          </Text>
+          <Text>Why not _X_? Too many other options!</Text>
+        </Box>
+        <Link href="https://xkcd.com/1987/">
+          <Image src="images/xkcd-python_environment.png" />
+        </Link>
+      </FlexBox>
+    </Slide>
   </Deck>
 );
 
